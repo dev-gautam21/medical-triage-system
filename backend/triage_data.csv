@@ -1,0 +1,6 @@
+Cold,2,1,0,Emergency
+Fever,2,1,1,Emergency
+Cough,3,1,0,Emergency
+Cold,1,0,0,Routine
+Cold,1,0,0,Routine
+Fever,2,1,1,Emergency
