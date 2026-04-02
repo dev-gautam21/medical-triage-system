@@ -1,70 +1,253 @@
-# Getting Started with Create React App
+# 🏥 AI-Assisted Medical Triage & Case Summarization System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered healthcare support system that evaluates basic patient symptoms (Fever, Cold, Cough) and classifies urgency levels while generating structured case summaries for doctors.
 
-## Available Scripts
+> ⚠️ **Disclaimer:** This system is NOT a diagnosis tool and does NOT provide medical advice. It is designed only for triage assistance.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🔗 *[Add your deployed frontend link here]*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📌 Problem Statement
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In many situations, patients struggle to decide:
 
-### `npm run build`
+* Whether their condition is serious
+* Whether immediate medical attention is required
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project aims to:
+👉 Assist in **early triage decision-making**
+👉 Help doctors with **structured case summaries**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚧 Project Scope (Phase 1)
 
-### `npm run eject`
+This project is currently in its **initial development stage (Phase 1)**.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To ensure accuracy, reliability, and controlled testing, the system currently focuses only on:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Fever
+* Cold
+* Cough
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This scope limitation allows the model to:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Maintain better prediction quality
+* Avoid over-generalization
+* Ensure safe and ethical behavior
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔮 Scalability & Future Expansion
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The system is designed to be **scalable and extensible**.
 
-### Code Splitting
+In future versions, we aim to:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Support a wider range of diseases
+* Expand symptom coverage
+* Improve ML model accuracy with larger datasets
+* Integrate real-time healthcare systems
 
-### Analyzing the Bundle Size
+👉 This phased approach ensures a balance between **accuracy, safety, and scalability**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🎯 Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 👤 Patient Interface
 
-### Advanced Configuration
+* Step-by-step dynamic question flow (wizard style)
+* Symptom-based path:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  * Fever
+  * Cold
+  * Cough
+* One question per screen
+* Progress bar
+* Form validation
+* Mobile responsive design
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 🚦 AI-Based Triage System
 
-### `npm run build` fails to minify
+* 🟢 **Green** → Routine
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* 🟡 **Yellow** → Doctor Required
+
+* 🔴 **Red** → Emergency
+
+* Rule-based + ML-assisted logic
+
+* Real-time urgency classification
+
+---
+
+### 📝 Case Summary Generation
+
+Structured output:
+
+* Patient Age
+* Primary Symptom
+* Associated Symptoms
+* Duration
+* Key Answers
+* Existing Conditions
+* Urgency Level
+* Red Flags Identified
+
+---
+
+### 👨‍⚕️ Doctor View Dashboard
+
+* Card-based UI
+* Displays patient details clearly
+* Highlights **red flags**
+* Print-friendly format
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* CSS
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Machine Learning
+
+* Python
+* Scikit-learn
+* Pandas
+
+---
+
+## 🧠 System Architecture
+
+```
+User (Frontend)
+     ↓
+React UI (Question Flow)
+     ↓
+Node.js Backend (API + Logic)
+     ↓
+ML Model (Prediction + Triage)
+     ↓
+Response (Urgency + Summary)
+     ↓
+Frontend Display (Result + Doctor View)
+```
+
+---
+
+## ⚙️ How It Works
+
+1. User selects a symptom (Fever / Cold / Cough)
+2. Dynamic questions are generated
+3. User responses are sent to backend API
+4. Backend:
+
+   * Applies rule-based logic
+   * Uses ML model for assistance
+5. System returns:
+
+   * Urgency Level
+   * Structured Case Summary
+6. Frontend displays results clearly
+
+---
+
+## 📂 Project Structure
+
+```
+medical-triage-system/
+│── backend/        # Node.js API & logic
+│── frontend/       # React UI
+│── ml/             # ML model & scripts
+│── README.md
+```
+
+---
+
+## 🧪 Run Locally
+
+### Clone Repository
+
+```
+git clone https://github.com/dev-gautam21/medical-triage-system.git
+cd medical-triage-system
+```
+
+---
+
+### Run Backend
+
+```
+cd backend
+npm install
+node index.js
+```
+
+---
+
+### Run Frontend
+
+```
+cd frontend
+npm install
+npm start
+```
+
+---
+
+### Run ML Service (if required)
+
+```
+cd ml
+python predict_api.py
+```
+
+---
+
+## ⚠️ Ethical Considerations
+
+* ❌ No diagnosis is provided
+* ❌ No medication advice
+* ❌ Not a replacement for a doctor
+
+✔ Designed only for:
+
+* Triage assistance
+* Awareness
+* Structured case reporting
+
+---
+
+## 🔮 Future Improvements
+
+* Cloud deployment of ML model
+* Multi-language support
+* Authentication system
+* Real-time doctor integration
+* Improved dataset & accuracy
+
+---
+
+## 👨‍💻 Author
+
+**Gautam Sharma**
+
+---
+
+## ⭐ If you found this useful, give it a star!
