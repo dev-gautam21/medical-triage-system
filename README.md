@@ -8,7 +8,7 @@ An AI-powered healthcare support system that evaluates basic patient symptoms (F
 
 ## 🚀 Live Demo
 
-🔗 *[Add your deployed frontend link here]*
+🔗 *https://medical-triage-system.vercel.app/*
 
 ---
 
