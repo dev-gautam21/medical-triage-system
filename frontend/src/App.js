@@ -840,27 +840,34 @@ export default function App() {
     });
   };
 
-  const submit = async (finalAnswers) => {
-    setView(VIEWS.LOADING);
-    try {
-      const res = await fetch("http://localhost:3001/triage", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ symptom, ...finalAnswers }),
-      });
-      if (!res.ok) throw new Error(`Server returned ${res.status}`);
-      const data = await res.json();
-      setResult({ ...data, payload: finalAnswers });
-      setView(VIEWS.RESULT);
-    } catch (e) {
-      setView(VIEWS.QUESTIONS);
-      setError(
-        e.message.includes("fetch") || e.message.includes("Failed")
-          ? "Cannot connect to backend (port 3001). Please make sure the server is running."
-          : e.message
-      );
-    }
-  };
+// Use Render backend URL for API calls
+const API_URL = process.env.REACT_APP_API_URL || "https://medical-triage-system.onrender.com";
+
+const submit = async (finalAnswers) => {
+  setView(VIEWS.LOADING);
+
+  try {
+    const res = await fetch(`${API_URL}/triage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ symptom, ...finalAnswers }),
+    });
+
+    if (!res.ok) throw new Error(`Server returned ${res.status}`);
+
+    const data = await res.json();
+    setResult({ ...data, payload: finalAnswers });
+    setView(VIEWS.RESULT);
+
+  } catch (e) {
+    console.error("Triage API Error:", e.message);
+    console.error("API URL:", API_URL);
+    setView(VIEWS.QUESTIONS);
+    setError(
+      `Connection error: ${e.message}. Backend URL: ${API_URL}`
+    );
+  }
+};
 
   const urgCfg = result ? (URGENCY[result.urgency] || URGENCY.Routine) : null;
   const hasFlags = result && (result.summary.breathingDifficulty === "Yes" || result.summary.chestPain === "Yes");

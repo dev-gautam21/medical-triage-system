@@ -8,8 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const ML_API_HOST = "localhost";
-const ML_API_PORT = 5001;
+const PORT = process.env.PORT || 3001;
+const ML_API_HOST = process.env.ML_API_HOST || "localhost";
+const ML_API_PORT = process.env.ML_API_PORT || 5001;
 
 // Calls Python ML microservice for prediction
 function callMLApi(patientData) {
@@ -88,7 +89,7 @@ app.post("/triage", async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
-  console.log("Backend running on port 3001");
+app.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
   console.log(`ML API expected at http://${ML_API_HOST}:${ML_API_PORT}`);
 });
